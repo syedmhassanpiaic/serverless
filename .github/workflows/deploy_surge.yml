@@ -28,6 +28,10 @@ jobs:
       # Install NodeJS
       - name: Install Node.JS
         uses: actions/setup-node@v2.1.4
+      
+      # Give full rights to node modules
+      - name: Giving full rights to node modules
+        run: sudo chown -R $USER /usr/local/lib/node_modules
 
       # Install surge
       - name: Install Surge
