@@ -28,12 +28,18 @@ jobs:
       # Install NodeJS
       - name: Install Node.JS
         uses: actions/setup-node@v2.1.4
-
+        with:
+          node-version: 12.x
+        
+      #Giving node modules full rights
+      - name: Node rights
+        run: sudo chown -R $USER /usr/local/lib/node_modules
+        
       # Install surge
       - name: Install Surge
-        run: npm install --global surge
+        run: npm install -g surge
 
       # Run Surge
       - name: Run Surge Command to deploy the application
-        run: surge ./ syedmhassan.web.sh --token ${{ secrets.SURGE_TOKEN }}
+        run: surge ./ syedmhassan.surge.sh --token ${{ secrets.SURGE_TOKEN }}
 
