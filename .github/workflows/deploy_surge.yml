@@ -28,6 +28,8 @@ jobs:
       # Install NodeJS
       - name: Install Node.JS
         uses: actions/setup-node@v2.1.4
+        with:
+          node-version: 12.x
         
       #Giving node modules full rights
       - name: Node rights
